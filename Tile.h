@@ -3,16 +3,17 @@
 #include "Player.h"
 #include "GameEngine.h"
 enum TileType {
-	PropertyTile,
-	StationTile,
-	UtilityTile,
-	TaxTile,
-	GoToJailTile,
-	JailTile,
-	FreeParkingTile,
-	GoTile,
-	ChanceTile,
-	FateTile
+	None,
+	PropertyType,
+	StationType,
+	UtilityType,
+	TaxType,
+	GoToJailType,
+	JailType,
+	FreeParkingType,
+	GoType,
+	ChanceType,
+	FateType
 };
 
 class Tile {
@@ -22,6 +23,7 @@ private:
 	TileType tileType;
 public:
 	Tile();
+	Tile(std::string tileName, int tileIndex, TileType tileType);
 	~Tile();
 	virtual void onLand(Player* player, GameEngine* engine) = 0;
 	virtual TileType getTileType();
